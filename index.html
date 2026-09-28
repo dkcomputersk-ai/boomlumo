@@ -19,17 +19,16 @@
   <meta name="keywords" content="Boom Lumo, 3D Animation, Cartoon Comedy, ASMR Animation, Impossible Physics, Family Entertainment, Shorts">
   <meta name="author" content="Boom Lumo Studios">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://boomlumo.github.io/">
+  <link rel="canonical" href="https://dkcomputersk-ai.github.io/boomlumo/">
 
   <!-- Open Graph / Social Meta Tags -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://boomlumo.github.io/">
+  <meta property="og:url" content="https://dkcomputersk-ai.github.io/boomlumo/">
   <meta property="og:title" content="Boom Lumo — 10 Seconds. Endless Fun.">
   <meta property="og:description" content="Satisfying AI • ASMR • Visual Comedy. Join millions enjoying impossible 3D cartoon animations!">
-  <meta property="og:image" content="assets/banner.jpg">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+  <!-- Self-Contained SVG Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%2305091E' stroke='%23FFD214' stroke-width='8'/%3E%3Cpath d='M35 55c0-12 7-22 15-22s15 10 15 22c0 10-6 16-15 16s-15-6-15-16z' fill='%23FFD214'/%3E%3Ccircle cx='43' cy='46' r='4' fill='%2305091E'/%3E%3Ccircle cx='57' cy='46' r='4' fill='%2305091E'/%3E%3Cpath d='M44 56q6 5 12 0' stroke='%2305091E' stroke-width='3' stroke-linecap='round' fill='none'/%3E%3Cpath d='M50 12l4 8h-8z' fill='%2300E5FF'/%3E%3C/svg%3E">
 
   <!-- Google Fonts: Fredoka (Cartoon Headings) & Outfit (Ultra-Clean UI Text) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,6 +65,26 @@
             'glow-gold': '0 0 30px rgba(255, 210, 20, 0.45)',
             'glow-cyan': '0 0 30px rgba(0, 229, 255, 0.45)',
             'glow-pink': '0 0 30px rgba(255, 42, 109, 0.45)'
+          },
+          animation: {
+            'float': 'float 4s ease-in-out infinite',
+            'bounce-gentle': 'bounceGentle 2.5s ease-in-out infinite',
+            'pulse-glow': 'pulseGlow 3.5s infinite',
+            'spin-slow': 'spin 18s linear infinite'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-8px)' }
+            },
+            bounceGentle: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-5px)' }
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.6' },
+              '50%': { opacity: '1' }
+            }
           }
         }
       }
@@ -82,8 +101,7 @@
     "@type": "Organization",
     "name": "Boom Lumo",
     "alternateName": "Boom Lumo 3D Animation Studio",
-    "url": "https://boomlumo.github.io/",
-    "logo": "https://boomlumo.github.io/assets/logo.jpg",
+    "url": "https://dkcomputersk-ai.github.io/boomlumo/",
     "description": "Official 3D Animation Brand delivering satisfying AI & ASMR, impossible family adventures, and visual cartoon comedy.",
     "slogan": "10 Seconds. Endless Fun.",
     "sameAs": [
@@ -111,15 +129,14 @@
       background: #FFD214;
     }
 
-    /* Custom Text Outlines & Glows */
+    /* Comic Text Styling */
     .comic-title {
       text-shadow: 2px 2px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000, 0px 4px 15px rgba(255, 210, 20, 0.4);
     }
-    .comic-sub {
-      text-shadow: 1px 1px 0px #000, -1px -1px 0px #000;
-    }
-    .badge-pop {
-      box-shadow: 0 4px 0 0 #030614;
+    .neon-grid {
+      background-size: 30px 30px;
+      background-image: linear-gradient(to right, rgba(34, 56, 123, 0.3) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(34, 56, 123, 0.3) 1px, transparent 1px);
     }
   </style>
 </head>
@@ -127,7 +144,7 @@
 <body class="bg-bgDeep text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-lumoYellow selection:text-black relative overflow-x-hidden">
 
   <!-- BACKGROUND NEBULA GLOWS -->
-  <div class="fixed top-0 left-1/3 w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+  <div class="fixed top-0 left-1/3 w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[140px] pointer-events-none -z-10 animate-pulse-glow"></div>
   <div class="fixed bottom-1/4 right-10 w-[550px] h-[550px] bg-lumoCyan/15 rounded-full blur-[140px] pointer-events-none -z-10"></div>
   <div class="fixed top-2/3 left-10 w-[500px] h-[500px] bg-lumoPurple/15 rounded-full blur-[160px] pointer-events-none -z-10"></div>
 
@@ -135,11 +152,38 @@
   <header class="sticky top-0 z-50 backdrop-blur-xl bg-bgDeep/95 border-b-2 border-borderNavy/90 shadow-2xl transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
-      <!-- Brand Logo & Identity (Clickable to Home/Social) -->
+      <!-- Brand Logo & Identity (Pure SVG Mascot - 100% Crisp Vector) -->
       <a href="https://www.facebook.com/BoomLumo" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3.5 group cursor-pointer" title="Visit Boom Lumo Official Facebook">
         <div class="relative">
-          <div class="w-12 h-12 rounded-full p-0.5 bg-gradient-to-tr from-lumoYellow via-lumoOrange to-lumoCyan shadow-glow-gold group-hover:scale-105 transition-transform duration-300">
-            <img src="assets/logo.jpg" alt="Boom Lumo Mascot Logo" class="w-full h-full rounded-full object-cover">
+          <div class="w-12 h-12 rounded-full p-0.5 bg-gradient-to-tr from-lumoYellow via-lumoOrange to-lumoCyan shadow-glow-gold group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+            <!-- Pure SVG 3D Cartoon Mascot Logo -->
+            <svg class="w-full h-full rounded-full" viewBox="0 0 100 100">
+              <defs>
+                <radialGradient id="logoBg" cx="35%" cy="35%" r="65%">
+                  <stop offset="0%" stop-color="#1A2D6E"/>
+                  <stop offset="100%" stop-color="#05091E"/>
+                </radialGradient>
+                <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FFEA79"/>
+                  <stop offset="50%" stop-color="#FFD214"/>
+                  <stop offset="100%" stop-color="#FF7A00"/>
+                </linearGradient>
+              </defs>
+              <circle cx="50" cy="50" r="48" fill="url(#logoBg)" stroke="#FFD214" stroke-width="4"/>
+              <!-- Cartoon Sparkles -->
+              <path d="M50 14l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#00E5FF"/>
+              <path d="M80 32l2 4 4 2-4 2-2 4-2-4-4-2 4-2z" fill="#FFD214"/>
+              <!-- 3D Character Face -->
+              <circle cx="50" cy="56" r="26" fill="url(#goldGrad)" stroke="#000" stroke-width="3"/>
+              <circle cx="41" cy="52" r="5" fill="#05091E"/>
+              <circle cx="59" cy="52" r="5" fill="#05091E"/>
+              <circle cx="43" cy="50" r="1.8" fill="#FFF"/>
+              <circle cx="61" cy="50" r="1.8" fill="#FFF"/>
+              <!-- Big Smile -->
+              <path d="M42 63q8 8 16 0" stroke="#05091E" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+              <circle cx="35" cy="58" r="3" fill="#FF2A6D" opacity="0.6"/>
+              <circle cx="65" cy="58" r="3" fill="#FF2A6D" opacity="0.6"/>
+            </svg>
           </div>
           <span class="absolute -bottom-1 -right-1 w-4 h-4 bg-lumoGreen border-2 border-bgDeep rounded-full animate-pulse" title="Official Studio Verified"></span>
         </div>
@@ -187,23 +231,54 @@
   <!-- MAIN WRAPPER -->
   <main class="flex-grow">
 
-    <!-- HERO SECTION WITH OFFICIAL BANNER & LOGO BADGE -->
+    <!-- HERO SECTION WITH VIBRANT 3D STUDIO BANNER -->
     <section class="relative pt-6 pb-12 overflow-hidden">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <!-- TOP BRAND BADGE: OFFICIAL BOOM LUMO LOGO (NO BOMB EMOJI) -->
+        <!-- TOP BRAND BADGE: OFFICIAL BOOM LUMO MASCOT BADGE -->
         <div class="flex justify-center mb-6">
           <a href="https://www.facebook.com/BoomLumo" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-bgMid/90 hover:bg-bgCard border-2 border-lumoYellow/80 px-5 py-2 rounded-full shadow-glow-gold hover:scale-105 transition-all group cursor-pointer" title="Click to open Boom Lumo Official Channel">
-            <img src="assets/logo.jpg" alt="Boom Lumo Mascot" class="w-7 h-7 rounded-full object-cover border-2 border-lumoYellow shadow-sm group-hover:rotate-12 transition-transform">
+            <div class="w-7 h-7 rounded-full bg-lumoYellow flex items-center justify-center p-0.5 shadow-sm group-hover:rotate-12 transition-transform">
+              <svg class="w-full h-full" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="46" fill="#05091E"/>
+                <circle cx="50" cy="55" r="26" fill="#FFD214"/>
+                <circle cx="41" cy="50" r="5" fill="#05091E"/>
+                <circle cx="59" cy="50" r="5" fill="#05091E"/>
+                <path d="M42 62q8 7 16 0" stroke="#05091E" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+              </svg>
+            </div>
             <span class="font-cartoon text-sm sm:text-base font-bold text-lumoYellow tracking-wide uppercase">OFFICIAL BOOM LUMO DIGITAL ANIMATION UNIVERSE</span>
             <span class="bg-lumoYellow text-black text-xs font-black px-2 py-0.5 rounded-full font-sans">2026</span>
           </a>
         </div>
 
-        <!-- PANORAMIC 3D STUDIO BANNER (DIRECTLY CLICKABLE) -->
+        <!-- PANORAMIC 3D STUDIO ANIMATED BANNER (ZERO DEPENDENCY ON LOCAL FILES) -->
         <div class="relative rounded-3xl overflow-hidden border-4 border-borderNavy shadow-comic-card group mb-10">
-          <a href="https://www.facebook.com/BoomLumo" target="_blank" rel="noopener noreferrer" class="block relative aspect-[21/9] sm:aspect-[24/9] w-full cursor-pointer bg-bgMid" title="Click banner to watch official animation videos">
-            <img src="assets/banner.jpg" alt="Boom Lumo Official 3D Panoramic Banner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+          <a href="https://www.facebook.com/BoomLumo" target="_blank" rel="noopener noreferrer" class="block relative aspect-[21/9] sm:aspect-[24/9] w-full cursor-pointer bg-gradient-to-br from-[#060D2C] via-[#101F5C] to-[#04081A] neon-grid" title="Click banner to watch official animation videos">
+            
+            <!-- Animated 3D Floating Geometry & Particles -->
+            <div class="absolute inset-0 overflow-hidden pointer-events-none">
+              <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-lumoCyan/30 rounded-full blur-2xl animate-float"></div>
+              <div class="absolute bottom-1/3 right-1/4 w-40 h-40 bg-lumoYellow/25 rounded-full blur-2xl animate-pulse"></div>
+              <div class="absolute top-10 right-20 w-16 h-16 rounded-2xl bg-gradient-to-tr from-lumoPink to-lumoPurple opacity-70 rotate-45 animate-bounce-gentle border border-white/20"></div>
+              <div class="absolute bottom-10 left-20 w-14 h-14 rounded-full bg-gradient-to-tr from-lumoCyan to-blue-500 opacity-60 animate-float border border-white/20"></div>
+            </div>
+
+            <!-- Banner Center Cartoon Illustration -->
+            <div class="absolute inset-0 flex items-center justify-center opacity-40 group-hover:opacity-60 transition-opacity">
+              <svg class="w-2/3 max-w-lg h-full" viewBox="0 0 600 240">
+                <!-- 3D Perspective Plane Grid -->
+                <path d="M100 240 L250 120 L350 120 L500 240 Z" fill="none" stroke="#00E5FF" stroke-width="2" opacity="0.4"/>
+                <path d="M175 240 L280 120 M425 240 L320 120 M300 240 L300 120" stroke="#00E5FF" stroke-width="1.5" opacity="0.3"/>
+                <!-- Cosmic Floating Wormhole Ring -->
+                <ellipse cx="300" cy="110" rx="90" ry="35" fill="none" stroke="#FFD214" stroke-width="6" stroke-dasharray="12 6" opacity="0.8"/>
+                <ellipse cx="300" cy="110" rx="60" ry="20" fill="none" stroke="#FF2A6D" stroke-width="4" opacity="0.6"/>
+                <!-- Stars -->
+                <path d="M180 60l3 6 6 3-6 3-3 6-3-6-6-3 6-3z" fill="#FFD214"/>
+                <path d="M440 70l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#00E5FF"/>
+              </svg>
+            </div>
+
             <div class="absolute inset-0 bg-gradient-to-t from-bgDeep via-transparent to-black/30"></div>
             
             <!-- Banner Overlay Badges -->
@@ -267,7 +342,7 @@
       </div>
     </section>
 
-    <!-- SECTION: FEATURED 9:16 SHORTS EPISODES (8 REAL CARTOON THUMBNAILS) -->
+    <!-- SECTION: FEATURED 9:16 SHORTS EPISODES (8 ULTRA-VIBRANT 3D SCENE CARDS) -->
     <section class="py-10 bg-bgMid/60 border-y-2 border-borderNavy/80 relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -285,14 +360,31 @@
           </p>
         </div>
 
-        <!-- 8 High-Energy 9:16 Cards Grid -->
+        <!-- 8 High-Energy 9:16 Animated Vector Scene Cards Grid -->
         <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           
-          <!-- Episode 1 -->
+          <!-- Episode 1: Flying Bus -->
           <a href="https://www.facebook.com/BoomLumo" target="_blank" rel="noopener noreferrer" class="group relative bg-bgCard border-2 border-borderNavy hover:border-lumoYellow rounded-3xl overflow-hidden shadow-comic-card hover:-translate-y-2 transition-all duration-300 flex flex-col cursor-pointer">
-            <div class="relative aspect-[9/16] w-full overflow-hidden bg-black">
-              <img src="assets/thumb1.png" alt="Episode: Mid-Air Bus Glitch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-bgDeep via-transparent to-black/30"></div>
+            <div class="relative aspect-[9/16] w-full overflow-hidden bg-gradient-to-b from-[#0F1E4A] via-[#1B357F] to-[#080E24] flex items-center justify-center p-4">
+              
+              <!-- 3D Vector Scene Illustration -->
+              <svg class="w-full h-full group-hover:scale-105 transition-transform duration-500" viewBox="0 0 180 320">
+                <!-- Cosmic Clouds & Stars -->
+                <circle cx="90" cy="90" r="50" fill="#00E5FF" opacity="0.15" filter="blur(15px)"/>
+                <path d="M40 50l2 4 4 2-4 2-2 4-2-4-4-2 4-2z" fill="#FFD214"/>
+                <path d="M140 70l2 4 4 2-4 2-2 4-2-4-4-2 4-2z" fill="#00E5FF"/>
+                <!-- Dimensional Grid -->
+                <path d="M20 280 L90 200 L160 280" stroke="#00E5FF" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5"/>
+                <!-- 3D Yellow Flying Bus -->
+                <rect x="45" y="115" width="90" height="48" rx="12" fill="#FFD214" stroke="#000" stroke-width="3"/>
+                <rect x="55" y="123" width="20" height="15" rx="3" fill="#00E5FF" stroke="#000" stroke-width="2"/>
+                <rect x="80" y="123" width="20" height="15" rx="3" fill="#00E5FF" stroke="#000" stroke-width="2"/>
+                <rect x="105" y="123" width="20" height="15" rx="3" fill="#00E5FF" stroke="#000" stroke-width="2"/>
+                <circle cx="65" cy="163" r="10" fill="#05091E" stroke="#FF7A00" stroke-width="3"/>
+                <circle cx="115" cy="163" r="10" fill="#05091E" stroke="#FF7A00" stroke-width="3"/>
+                <!-- Anti-Gravity Jet Flames -->
+                <ellipse cx="90" cy="178" rx="25" ry="6" fill="#00E5FF" opacity="0.7"/>
+              </svg>
               
               <!-- Episode Tag -->
               <span class="absolute top-3 left-3 bg-black/80 backdrop-blur-md text-lumoYellow border border-lumoYellow/60 text-xs font-cartoon font-bold px-3 py-1 rounded-full">
@@ -301,7 +393,7 @@
               
               <!-- Play Button Glow Overlay -->
               <div class="absolute inset-0 flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity">
-                <div class="w-14 h-14 rounded-full bg-lumoYellow/90 text-black flex items-center justify-center shadow-glow-gold group-hover:scale-110 transition-transform">
+                <div class="w-14 h-14 rounded-full bg-lumoYellow/95 text-black flex items-center justify-center shadow-glow-gold group-hover:scale-110 transition-transform">
                   <svg class="w-7 h-7 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                 </div>
               </div>
@@ -321,18 +413,28 @@
             </div>
           </a>
 
-          <!-- Episode 2 -->
+          <!-- Episode 2: Reverse Waterfall -->
           <a href="https://www.facebook.com/BoomLumo" target="_blank" rel="noopener noreferrer" class="group relative bg-bgCard border-2 border-borderNavy hover:border-lumoCyan rounded-3xl overflow-hidden shadow-comic-card hover:-translate-y-2 transition-all duration-300 flex flex-col cursor-pointer">
-            <div class="relative aspect-[9/16] w-full overflow-hidden bg-black">
-              <img src="assets/thumb2.png" alt="Episode: Reverse Waterfall Drop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-bgDeep via-transparent to-black/30"></div>
+            <div class="relative aspect-[9/16] w-full overflow-hidden bg-gradient-to-b from-[#0A2647] via-[#0D4C73] to-[#051329] flex items-center justify-center p-4">
+              
+              <svg class="w-full h-full group-hover:scale-105 transition-transform duration-500" viewBox="0 0 180 320">
+                <circle cx="90" cy="160" r="55" fill="#00E5FF" opacity="0.2" filter="blur(20px)"/>
+                <!-- Reverse Waterfall Streams -->
+                <path d="M60 260 C60 180 80 140 85 60" stroke="#00E5FF" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.8"/>
+                <path d="M90 270 C95 190 95 130 95 50" stroke="#FFD214" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.9"/>
+                <path d="M120 260 C120 180 105 140 105 60" stroke="#38BDF8" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.8"/>
+                <!-- Water Droplets -->
+                <circle cx="70" cy="110" r="6" fill="#00E5FF"/>
+                <circle cx="110" cy="130" r="5" fill="#FFD214"/>
+                <circle cx="90" cy="80" r="7" fill="#FFF"/>
+              </svg>
               
               <span class="absolute top-3 left-3 bg-black/80 backdrop-blur-md text-lumoCyan border border-lumoCyan/60 text-xs font-cartoon font-bold px-3 py-1 rounded-full">
                 EP #02
               </span>
               
               <div class="absolute inset-0 flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity">
-                <div class="w-14 h-14 rounded-full bg-lumoCyan/90 text-black flex items-center justify-center shadow-glow-cyan group-hover:scale-110 transition-transform">
+                <div class="w-14 h-14 rounded-full bg-lumoCyan/95 text-black flex items-center justify-center shadow-glow-cyan group-hover:scale-110 transition-transform">
                   <svg class="w-7 h-7 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                 </div>
               </div>
@@ -352,18 +454,28 @@
             </div>
           </a>
 
-          <!-- Episode 3 -->
+          <!-- Episode 3: Floating Mall Surprise -->
           <a href="https://www.facebook.com/BoomLumo" target="_blank" rel="noopener noreferrer" class="group relative bg-bgCard border-2 border-borderNavy hover:border-lumoPink rounded-3xl overflow-hidden shadow-comic-card hover:-translate-y-2 transition-all duration-300 flex flex-col cursor-pointer">
-            <div class="relative aspect-[9/16] w-full overflow-hidden bg-black">
-              <img src="assets/thumb3.png" alt="Episode: Floating Mall Bags" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-bgDeep via-transparent to-black/30"></div>
+            <div class="relative aspect-[9/16] w-full overflow-hidden bg-gradient-to-b from-[#3D0C2A] via-[#631445] to-[#12040D] flex items-center justify-center p-4">
+              
+              <svg class="w-full h-full group-hover:scale-105 transition-transform duration-500" viewBox="0 0 180 320">
+                <circle cx="90" cy="150" r="50" fill="#FF2A6D" opacity="0.2" filter="blur(18px)"/>
+                <!-- Floating Shopping Bags & Gift Boxes -->
+                <rect x="50" y="100" width="35" height="40" rx="6" fill="#FF2A6D" stroke="#000" stroke-width="2.5"/>
+                <path d="M60 100 Q67 85 75 100" stroke="#FFD214" stroke-width="3" fill="none"/>
+                <rect x="95" y="140" width="40" height="36" rx="6" fill="#FFD214" stroke="#000" stroke-width="2.5"/>
+                <path d="M95 158 L135 158 M115 140 L115 176" stroke="#FF2A6D" stroke-width="2.5"/>
+                <circle cx="65" cy="200" r="14" fill="#00E5FF" stroke="#000" stroke-width="2.5"/>
+                <!-- Sparkles -->
+                <path d="M120 90l2 4 4 2-4 2-2 4-2-4-4-2 4-2z" fill="#FFF"/>
+              </svg>
               
               <span class="absolute top-3 left-3 bg-black/80 backdrop-blur-md text-lumoPink border border-lumoPink/60 text-xs font-cartoon font-bold px-3 py-1 rounded-full">
                 EP #03
               </span>
               
               <div class="absolute inset-0 flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity">
-                <div class="w-14 h-14 rounded-full bg-lumoPink/90 text-white flex items-center justify-center shadow-glow-pink group-hover:scale-110 transition-transform">
+                <div class="w-14 h-14 rounded-full bg-lumoPink/95 text-white flex items-center justify-center shadow-glow-pink group-hover:scale-110 transition-transform">
                   <svg class="w-7 h-7 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                 </div>
               </div>
@@ -383,18 +495,27 @@
             </div>
           </a>
 
-          <!-- Episode 4 -->
+          <!-- Episode 4: Sparkle Park Rift -->
           <a href="https://www.facebook.com/BoomLumo" target="_blank" rel="noopener noreferrer" class="group relative bg-bgCard border-2 border-borderNavy hover:border-lumoGreen rounded-3xl overflow-hidden shadow-comic-card hover:-translate-y-2 transition-all duration-300 flex flex-col cursor-pointer">
-            <div class="relative aspect-[9/16] w-full overflow-hidden bg-black">
-              <img src="assets/thumb4.png" alt="Episode: Magic Park Bench" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-bgDeep via-transparent to-black/30"></div>
+            <div class="relative aspect-[9/16] w-full overflow-hidden bg-gradient-to-b from-[#0A3323] via-[#0E5239] to-[#041A11] flex items-center justify-center p-4">
+              
+              <svg class="w-full h-full group-hover:scale-105 transition-transform duration-500" viewBox="0 0 180 320">
+                <circle cx="90" cy="140" r="50" fill="#10B981" opacity="0.2" filter="blur(18px)"/>
+                <!-- Floating 3D Bench & Magic Crystals -->
+                <rect x="45" y="145" width="90" height="14" rx="4" fill="#FFD214" stroke="#000" stroke-width="2.5"/>
+                <path d="M55 159 L55 180 M125 159 L125 180" stroke="#10B981" stroke-width="4" stroke-linecap="round"/>
+                <!-- Floating Diamond Prism -->
+                <polygon points="90,80 110,115 90,135 70,115" fill="#00E5FF" stroke="#000" stroke-width="2.5"/>
+                <polygon points="90,80 90,135 70,115" fill="#FFF" opacity="0.4"/>
+                <path d="M130 90l3 5 5 3-5 3-3 5-3-5-5-3 5-3z" fill="#10B981"/>
+              </svg>
               
               <span class="absolute top-3 left-3 bg-black/80 backdrop-blur-md text-lumoGreen border border-lumoGreen/60 text-xs font-cartoon font-bold px-3 py-1 rounded-full">
                 EP #04
               </span>
               
               <div class="absolute inset-0 flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity">
-                <div class="w-14 h-14 rounded-full bg-lumoGreen/90 text-black flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                <div class="w-14 h-14 rounded-full bg-lumoGreen/95 text-black flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                   <svg class="w-7 h-7 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                 </div>
               </div>
@@ -414,18 +535,26 @@
             </div>
           </a>
 
-          <!-- Episode 5 -->
+          <!-- Episode 5: Cosmic Portal Leap -->
           <a href="https://www.facebook.com/BoomLumo" target="_blank" rel="noopener noreferrer" class="group relative bg-bgCard border-2 border-borderNavy hover:border-lumoOrange rounded-3xl overflow-hidden shadow-comic-card hover:-translate-y-2 transition-all duration-300 flex flex-col cursor-pointer">
-            <div class="relative aspect-[9/16] w-full overflow-hidden bg-black">
-              <img src="assets/thumb5.png" alt="Episode: Cosmic Portal Leap" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-bgDeep via-transparent to-black/30"></div>
+            <div class="relative aspect-[9/16] w-full overflow-hidden bg-gradient-to-b from-[#381608] via-[#63290E] to-[#120702] flex items-center justify-center p-4">
+              
+              <svg class="w-full h-full group-hover:scale-105 transition-transform duration-500" viewBox="0 0 180 320">
+                <circle cx="90" cy="150" r="55" fill="#FF7A00" opacity="0.25" filter="blur(20px)"/>
+                <!-- Swirling Portal Rings -->
+                <ellipse cx="90" cy="150" rx="60" ry="24" fill="none" stroke="#FFD214" stroke-width="5" stroke-dasharray="10 5"/>
+                <ellipse cx="90" cy="150" rx="42" ry="16" fill="none" stroke="#FF7A00" stroke-width="4"/>
+                <ellipse cx="90" cy="150" rx="22" ry="8" fill="#00E5FF"/>
+                <!-- Shooting Star trail -->
+                <path d="M50 70 Q70 90 90 140" stroke="#FFF" stroke-width="3" stroke-linecap="round" fill="none"/>
+              </svg>
               
               <span class="absolute top-3 left-3 bg-black/80 backdrop-blur-md text-lumoOrange border border-lumoOrange/60 text-xs font-cartoon font-bold px-3 py-1 rounded-full">
                 EP #05
               </span>
               
               <div class="absolute inset-0 flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity">
-                <div class="w-14 h-14 rounded-full bg-lumoOrange/90 text-black flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                <div class="w-14 h-14 rounded-full bg-lumoOrange/95 text-black flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                   <svg class="w-7 h-7 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                 </div>
               </div>
@@ -445,18 +574,26 @@
             </div>
           </a>
 
-          <!-- Episode 6 -->
+          <!-- Episode 6: Jelly Matrix Train -->
           <a href="https://www.facebook.com/BoomLumo" target="_blank" rel="noopener noreferrer" class="group relative bg-bgCard border-2 border-borderNavy hover:border-lumoPurple rounded-3xl overflow-hidden shadow-comic-card hover:-translate-y-2 transition-all duration-300 flex flex-col cursor-pointer">
-            <div class="relative aspect-[9/16] w-full overflow-hidden bg-black">
-              <img src="assets/thumb6.png" alt="Episode: Jelly Matrix Train" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-bgDeep via-transparent to-black/30"></div>
+            <div class="relative aspect-[9/16] w-full overflow-hidden bg-gradient-to-b from-[#2B0E47] via-[#471875] to-[#0E031A] flex items-center justify-center p-4">
+              
+              <svg class="w-full h-full group-hover:scale-105 transition-transform duration-500" viewBox="0 0 180 320">
+                <circle cx="90" cy="150" r="50" fill="#9D4EDD" opacity="0.25" filter="blur(18px)"/>
+                <!-- Bouncy Jelly Cube Train -->
+                <rect x="50" y="120" width="80" height="46" rx="16" fill="#9D4EDD" stroke="#000" stroke-width="3"/>
+                <rect x="62" y="130" width="18" height="14" rx="4" fill="#00E5FF" stroke="#000" stroke-width="2"/>
+                <rect x="92" y="130" width="24" height="14" rx="4" fill="#FFD214" stroke="#000" stroke-width="2"/>
+                <ellipse cx="65" cy="168" rx="8" ry="4" fill="#FF2A6D"/>
+                <ellipse cx="115" cy="168" rx="8" ry="4" fill="#FF2A6D"/>
+              </svg>
               
               <span class="absolute top-3 left-3 bg-black/80 backdrop-blur-md text-lumoPurple border border-lumoPurple/60 text-xs font-cartoon font-bold px-3 py-1 rounded-full">
                 EP #06
               </span>
               
               <div class="absolute inset-0 flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity">
-                <div class="w-14 h-14 rounded-full bg-lumoPurple/90 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                <div class="w-14 h-14 rounded-full bg-lumoPurple/95 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                   <svg class="w-7 h-7 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                 </div>
               </div>
@@ -476,18 +613,29 @@
             </div>
           </a>
 
-          <!-- Episode 7 -->
+          <!-- Episode 7: Clock Tower Freeze -->
           <a href="https://www.facebook.com/BoomLumo" target="_blank" rel="noopener noreferrer" class="group relative bg-bgCard border-2 border-borderNavy hover:border-lumoYellow rounded-3xl overflow-hidden shadow-comic-card hover:-translate-y-2 transition-all duration-300 flex flex-col cursor-pointer">
-            <div class="relative aspect-[9/16] w-full overflow-hidden bg-black">
-              <img src="assets/thumb7.png" alt="Episode: Clock Tower Freeze" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-bgDeep via-transparent to-black/30"></div>
+            <div class="relative aspect-[9/16] w-full overflow-hidden bg-gradient-to-b from-[#2B2406] via-[#4F410B] to-[#0F0D02] flex items-center justify-center p-4">
+              
+              <svg class="w-full h-full group-hover:scale-105 transition-transform duration-500" viewBox="0 0 180 320">
+                <circle cx="90" cy="145" r="50" fill="#FFD214" opacity="0.2" filter="blur(18px)"/>
+                <!-- 3D Clock Dial -->
+                <circle cx="90" cy="145" r="44" fill="#05091E" stroke="#FFD214" stroke-width="4"/>
+                <path d="M90 115 L90 145 L110 145" stroke="#00E5FF" stroke-width="3.5" stroke-linecap="round"/>
+                <circle cx="90" cy="145" r="4" fill="#FF2A6D"/>
+                <!-- Roman Markers -->
+                <circle cx="90" cy="108" r="2.5" fill="#FFD214"/>
+                <circle cx="127" cy="145" r="2.5" fill="#FFD214"/>
+                <circle cx="90" cy="182" r="2.5" fill="#FFD214"/>
+                <circle cx="53" cy="145" r="2.5" fill="#FFD214"/>
+              </svg>
               
               <span class="absolute top-3 left-3 bg-black/80 backdrop-blur-md text-lumoYellow border border-lumoYellow/60 text-xs font-cartoon font-bold px-3 py-1 rounded-full">
                 EP #07
               </span>
               
               <div class="absolute inset-0 flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity">
-                <div class="w-14 h-14 rounded-full bg-lumoYellow/90 text-black flex items-center justify-center shadow-glow-gold group-hover:scale-110 transition-transform">
+                <div class="w-14 h-14 rounded-full bg-lumoYellow/95 text-black flex items-center justify-center shadow-glow-gold group-hover:scale-110 transition-transform">
                   <svg class="w-7 h-7 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                 </div>
               </div>
@@ -507,18 +655,27 @@
             </div>
           </a>
 
-          <!-- Episode 8 -->
+          <!-- Episode 8: Gravity Beach Warp -->
           <a href="https://www.facebook.com/BoomLumo" target="_blank" rel="noopener noreferrer" class="group relative bg-bgCard border-2 border-borderNavy hover:border-lumoCyan rounded-3xl overflow-hidden shadow-comic-card hover:-translate-y-2 transition-all duration-300 flex flex-col cursor-pointer">
-            <div class="relative aspect-[9/16] w-full overflow-hidden bg-black">
-              <img src="assets/thumb8.png" alt="Episode: Gravity Beach Dimension" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-bgDeep via-transparent to-black/30"></div>
+            <div class="relative aspect-[9/16] w-full overflow-hidden bg-gradient-to-b from-[#082B3B] via-[#0E4963] to-[#03131A] flex items-center justify-center p-4">
+              
+              <svg class="w-full h-full group-hover:scale-105 transition-transform duration-500" viewBox="0 0 180 320">
+                <circle cx="90" cy="140" r="50" fill="#00E5FF" opacity="0.25" filter="blur(18px)"/>
+                <!-- Upside Down Wave & Sun -->
+                <circle cx="130" cy="80" r="16" fill="#FFD214"/>
+                <path d="M20 180 Q60 140 100 180 T180 180 L180 240 L20 240 Z" fill="#00E5FF" opacity="0.7"/>
+                <path d="M10 200 Q50 160 90 200 T170 200 L170 260 L10 260 Z" fill="#38BDF8" opacity="0.9"/>
+                <!-- Floating Palm Tree -->
+                <path d="M50 130 Q55 105 65 90" stroke="#FF7A00" stroke-width="4" fill="none"/>
+                <circle cx="68" cy="85" r="12" fill="#10B981"/>
+              </svg>
               
               <span class="absolute top-3 left-3 bg-black/80 backdrop-blur-md text-lumoCyan border border-lumoCyan/60 text-xs font-cartoon font-bold px-3 py-1 rounded-full">
                 EP #08
               </span>
               
               <div class="absolute inset-0 flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity">
-                <div class="w-14 h-14 rounded-full bg-lumoCyan/90 text-black flex items-center justify-center shadow-glow-cyan group-hover:scale-110 transition-transform">
+                <div class="w-14 h-14 rounded-full bg-lumoCyan/95 text-black flex items-center justify-center shadow-glow-cyan group-hover:scale-110 transition-transform">
                   <svg class="w-7 h-7 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                 </div>
               </div>
@@ -553,7 +710,7 @@
       </div>
     </div>
 
-    <!-- SECTION: THE MAGIC BEHIND BOOM LUMO (PILLARS WITH CLEAN ASPECT RATIO) -->
+    <!-- SECTION: THE MAGIC BEHIND BOOM LUMO (PILLARS WITH CLEAN VECTOR GRAPHICS) -->
     <section class="py-12 relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -575,8 +732,12 @@
           
           <!-- Pillar 1 -->
           <a href="https://www.facebook.com/BoomLumo" target="_blank" rel="noopener noreferrer" class="bg-bgCard hover:bg-bgCardHover border-2 border-borderNavy hover:border-lumoCyan rounded-3xl p-5 shadow-comic-card hover:-translate-y-2 transition-all flex flex-col group cursor-pointer">
-            <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4 border border-borderNavy bg-black">
-              <img src="assets/pillar1.png" alt="Impossible Physics Simulation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4 border border-borderNavy bg-gradient-to-br from-[#061838] via-[#0E3575] to-[#040C1A] flex items-center justify-center p-4">
+              <svg class="w-20 h-20 group-hover:scale-110 transition-transform" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="38" fill="none" stroke="#00E5FF" stroke-width="3" stroke-dasharray="6 4"/>
+                <circle cx="50" cy="50" r="20" fill="#00E5FF" opacity="0.4"/>
+                <path d="M50 20 L50 80 M20 50 L80 50" stroke="#FFD214" stroke-width="2.5"/>
+              </svg>
               <span class="absolute top-2.5 left-2.5 bg-black/80 backdrop-blur-md text-lumoCyan text-[11px] font-cartoon font-bold px-2.5 py-1 rounded-full border border-lumoCyan/50">
                 Simulation Engine
               </span>
@@ -595,8 +756,13 @@
 
           <!-- Pillar 2 -->
           <a href="https://www.facebook.com/BoomLumo" target="_blank" rel="noopener noreferrer" class="bg-bgCard hover:bg-bgCardHover border-2 border-borderNavy hover:border-lumoYellow rounded-3xl p-5 shadow-comic-card hover:-translate-y-2 transition-all flex flex-col group cursor-pointer">
-            <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4 border border-borderNavy bg-black">
-              <img src="assets/pillar2.png" alt="Satisfying AI and ASMR Soundscapes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4 border border-borderNavy bg-gradient-to-br from-[#292004] via-[#5C4508] to-[#120D01] flex items-center justify-center p-4">
+              <svg class="w-20 h-20 group-hover:scale-110 transition-transform" viewBox="0 0 100 100">
+                <path d="M30 65 L30 35 Q45 20 60 35 L60 65" fill="none" stroke="#FFD214" stroke-width="4"/>
+                <rect x="22" y="45" width="16" height="25" rx="6" fill="#FF7A00"/>
+                <rect x="52" y="45" width="16" height="25" rx="6" fill="#FF7A00"/>
+                <path d="M75 40 Q85 50 75 60 M82 32 Q98 50 82 68" stroke="#00E5FF" stroke-width="3" fill="none" stroke-linecap="round"/>
+              </svg>
               <span class="absolute top-2.5 left-2.5 bg-black/80 backdrop-blur-md text-lumoYellow text-[11px] font-cartoon font-bold px-2.5 py-1 rounded-full border border-lumoYellow/50">
                 ASMR Audio Sync
               </span>
@@ -615,8 +781,13 @@
 
           <!-- Pillar 3 -->
           <a href="https://www.facebook.com/BoomLumo" target="_blank" rel="noopener noreferrer" class="bg-bgCard hover:bg-bgCardHover border-2 border-borderNavy hover:border-lumoOrange rounded-3xl p-5 shadow-comic-card hover:-translate-y-2 transition-all flex flex-col group cursor-pointer">
-            <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4 border border-borderNavy bg-black">
-              <img src="assets/pillar3.png" alt="Universal Character Laughs" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4 border border-borderNavy bg-gradient-to-br from-[#331405] via-[#66280B] to-[#140702] flex items-center justify-center p-4">
+              <svg class="w-20 h-20 group-hover:scale-110 transition-transform" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="36" fill="#FF7A00" stroke="#000" stroke-width="3"/>
+                <circle cx="38" cy="44" r="5" fill="#000"/>
+                <circle cx="62" cy="44" r="5" fill="#000"/>
+                <path d="M36 60 Q50 75 64 60" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
+              </svg>
               <span class="absolute top-2.5 left-2.5 bg-black/80 backdrop-blur-md text-lumoOrange text-[11px] font-cartoon font-bold px-2.5 py-1 rounded-full border border-lumoOrange/50">
                 Universal Laughs
               </span>
@@ -635,8 +806,12 @@
 
           <!-- Pillar 4 -->
           <a href="https://www.facebook.com/BoomLumo" target="_blank" rel="noopener noreferrer" class="bg-bgCard hover:bg-bgCardHover border-2 border-borderNavy hover:border-lumoPink rounded-3xl p-5 shadow-comic-card hover:-translate-y-2 transition-all flex flex-col group cursor-pointer">
-            <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4 border border-borderNavy bg-black">
-              <img src="assets/pillar4.png" alt="Fresh Daily Cartoon Drops" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4 border border-borderNavy bg-gradient-to-br from-[#380922] via-[#66123F] to-[#17030D] flex items-center justify-center p-4">
+              <svg class="w-20 h-20 group-hover:scale-110 transition-transform" viewBox="0 0 100 100">
+                <rect x="24" y="36" width="52" height="42" rx="10" fill="#FF2A6D" stroke="#000" stroke-width="3"/>
+                <path d="M24 52 L76 52 M50 36 L50 78" stroke="#FFD214" stroke-width="4"/>
+                <circle cx="50" cy="30" r="8" fill="#00E5FF"/>
+              </svg>
               <span class="absolute top-2.5 left-2.5 bg-black/80 backdrop-blur-md text-lumoPink text-[11px] font-cartoon font-bold px-2.5 py-1 rounded-full border border-lumoPink/50">
                 Fresh Drops
               </span>
@@ -675,15 +850,19 @@
           </p>
         </div>
 
-        <!-- 6 High-Quality 3D Render Gallery Cards (Aspect 3/4 Clear Character Renders) -->
+        <!-- 6 High-Quality 3D Render Gallery Cards (Aspect 3/4) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           
           <!-- Gallery Item 1 -->
           <a href="https://www.facebook.com/BoomLumo" target="_blank" rel="noopener noreferrer" class="bg-bgCard hover:bg-bgCardHover border-2 border-borderNavy hover:border-lumoYellow rounded-3xl overflow-hidden shadow-comic-card hover:-translate-y-2 transition-all flex flex-col group cursor-pointer">
-            <div class="relative aspect-[3/4] w-full overflow-hidden bg-black">
-              <img src="assets/gallery1.png" alt="3D Studio Highlight: Cosmic Slapstick Lab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-bgDeep via-transparent to-black/20"></div>
-              
+            <div class="relative aspect-[3/4] w-full overflow-hidden bg-gradient-to-br from-[#061838] via-[#0E3575] to-[#040C1A] flex items-center justify-center p-6">
+              <svg class="w-3/4 h-3/4 group-hover:scale-105 transition-transform" viewBox="0 0 160 200">
+                <circle cx="80" cy="100" r="60" fill="#00E5FF" opacity="0.2" filter="blur(15px)"/>
+                <!-- 3D Character Rigging Wireframe -->
+                <circle cx="80" cy="65" r="28" fill="#FFD214" stroke="#000" stroke-width="3"/>
+                <path d="M80 93 L80 150 M50 120 L110 120 M60 180 L80 150 L100 180" stroke="#00E5FF" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="80" cy="120" r="5" fill="#FF2A6D"/>
+              </svg>
               <div class="absolute top-3 right-3 bg-black/80 backdrop-blur-md text-lumoYellow border border-lumoYellow/60 text-xs font-cartoon font-bold px-3 py-1 rounded-full">
                 Render #01
               </div>
@@ -703,10 +882,15 @@
 
           <!-- Gallery Item 2 -->
           <a href="https://www.facebook.com/BoomLumo" target="_blank" rel="noopener noreferrer" class="bg-bgCard hover:bg-bgCardHover border-2 border-borderNavy hover:border-lumoCyan rounded-3xl overflow-hidden shadow-comic-card hover:-translate-y-2 transition-all flex flex-col group cursor-pointer">
-            <div class="relative aspect-[3/4] w-full overflow-hidden bg-black">
-              <img src="assets/gallery2.png" alt="3D Studio Highlight: Gravity Glitch Lab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-bgDeep via-transparent to-black/20"></div>
-              
+            <div class="relative aspect-[3/4] w-full overflow-hidden bg-gradient-to-br from-[#0A2647] via-[#0D4C73] to-[#051329] flex items-center justify-center p-6">
+              <svg class="w-3/4 h-3/4 group-hover:scale-105 transition-transform" viewBox="0 0 160 200">
+                <circle cx="80" cy="100" r="55" fill="#00E5FF" opacity="0.25" filter="blur(15px)"/>
+                <!-- Jelly Matrix Grid Cubes -->
+                <rect x="35" y="60" width="36" height="36" rx="8" fill="#00E5FF" stroke="#000" stroke-width="2.5"/>
+                <rect x="85" y="60" width="36" height="36" rx="8" fill="#FFD214" stroke="#000" stroke-width="2.5"/>
+                <rect x="35" y="110" width="36" height="36" rx="8" fill="#FF7A00" stroke="#000" stroke-width="2.5"/>
+                <rect x="85" y="110" width="36" height="36" rx="8" fill="#9D4EDD" stroke="#000" stroke-width="2.5"/>
+              </svg>
               <div class="absolute top-3 right-3 bg-black/80 backdrop-blur-md text-lumoCyan border border-lumoCyan/60 text-xs font-cartoon font-bold px-3 py-1 rounded-full">
                 Render #02
               </div>
@@ -726,10 +910,14 @@
 
           <!-- Gallery Item 3 -->
           <a href="https://www.facebook.com/BoomLumo" target="_blank" rel="noopener noreferrer" class="bg-bgCard hover:bg-bgCardHover border-2 border-borderNavy hover:border-lumoPink rounded-3xl overflow-hidden shadow-comic-card hover:-translate-y-2 transition-all flex flex-col group cursor-pointer">
-            <div class="relative aspect-[3/4] w-full overflow-hidden bg-black">
-              <img src="assets/gallery3.png" alt="3D Studio Highlight: Family Cartoon Dynamic" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-bgDeep via-transparent to-black/20"></div>
-              
+            <div class="relative aspect-[3/4] w-full overflow-hidden bg-gradient-to-br from-[#3D0C2A] via-[#631445] to-[#12040D] flex items-center justify-center p-6">
+              <svg class="w-3/4 h-3/4 group-hover:scale-105 transition-transform" viewBox="0 0 160 200">
+                <circle cx="80" cy="100" r="55" fill="#FF2A6D" opacity="0.25" filter="blur(15px)"/>
+                <!-- Cartoon Family Silhouettes -->
+                <circle cx="55" cy="75" r="16" fill="#FFD214" stroke="#000" stroke-width="2.5"/>
+                <circle cx="105" cy="70" r="18" fill="#00E5FF" stroke="#000" stroke-width="2.5"/>
+                <circle cx="80" cy="115" r="14" fill="#FF2A6D" stroke="#000" stroke-width="2.5"/>
+              </svg>
               <div class="absolute top-3 right-3 bg-black/80 backdrop-blur-md text-lumoPink border border-lumoPink/60 text-xs font-cartoon font-bold px-3 py-1 rounded-full">
                 Render #03
               </div>
@@ -749,10 +937,14 @@
 
           <!-- Gallery Item 4 -->
           <a href="https://www.facebook.com/BoomLumo" target="_blank" rel="noopener noreferrer" class="bg-bgCard hover:bg-bgCardHover border-2 border-borderNavy hover:border-lumoGreen rounded-3xl overflow-hidden shadow-comic-card hover:-translate-y-2 transition-all flex flex-col group cursor-pointer">
-            <div class="relative aspect-[3/4] w-full overflow-hidden bg-black">
-              <img src="assets/gallery4.png" alt="3D Studio Highlight: Candy Dimension Vortex" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-bgDeep via-transparent to-black/20"></div>
-              
+            <div class="relative aspect-[3/4] w-full overflow-hidden bg-gradient-to-br from-[#0A3323] via-[#0E5239] to-[#041A11] flex items-center justify-center p-6">
+              <svg class="w-3/4 h-3/4 group-hover:scale-105 transition-transform" viewBox="0 0 160 200">
+                <circle cx="80" cy="100" r="55" fill="#10B981" opacity="0.25" filter="blur(15px)"/>
+                <!-- Candy Swirl Vortex -->
+                <circle cx="80" cy="100" r="44" fill="#10B981" stroke="#000" stroke-width="3"/>
+                <path d="M80 56 A44 44 0 0 1 124 100 A44 44 0 0 1 80 144" fill="#FFD214"/>
+                <circle cx="80" cy="100" r="16" fill="#FF2A6D"/>
+              </svg>
               <div class="absolute top-3 right-3 bg-black/80 backdrop-blur-md text-lumoGreen border border-lumoGreen/60 text-xs font-cartoon font-bold px-3 py-1 rounded-full">
                 Render #04
               </div>
@@ -772,10 +964,15 @@
 
           <!-- Gallery Item 5 -->
           <a href="https://www.facebook.com/BoomLumo" target="_blank" rel="noopener noreferrer" class="bg-bgCard hover:bg-bgCardHover border-2 border-borderNavy hover:border-lumoOrange rounded-3xl overflow-hidden shadow-comic-card hover:-translate-y-2 transition-all flex flex-col group cursor-pointer">
-            <div class="relative aspect-[3/4] w-full overflow-hidden bg-black">
-              <img src="assets/gallery5.png" alt="3D Studio Highlight: Dimensional Bus Rift" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-bgDeep via-transparent to-black/20"></div>
-              
+            <div class="relative aspect-[3/4] w-full overflow-hidden bg-gradient-to-br from-[#381608] via-[#63290E] to-[#120702] flex items-center justify-center p-6">
+              <svg class="w-3/4 h-3/4 group-hover:scale-105 transition-transform" viewBox="0 0 160 200">
+                <circle cx="80" cy="100" r="55" fill="#FF7A00" opacity="0.25" filter="blur(15px)"/>
+                <!-- Dimensional Bus Rift -->
+                <rect x="35" y="75" width="90" height="45" rx="10" fill="#FF7A00" stroke="#000" stroke-width="3"/>
+                <circle cx="55" cy="120" r="9" fill="#00E5FF"/>
+                <circle cx="105" cy="120" r="9" fill="#00E5FF"/>
+                <path d="M20 150 L140 150" stroke="#FFD214" stroke-width="3" stroke-dasharray="6 4"/>
+              </svg>
               <div class="absolute top-3 right-3 bg-black/80 backdrop-blur-md text-lumoOrange border border-lumoOrange/60 text-xs font-cartoon font-bold px-3 py-1 rounded-full">
                 Render #05
               </div>
@@ -795,10 +992,14 @@
 
           <!-- Gallery Item 6 -->
           <a href="https://www.facebook.com/BoomLumo" target="_blank" rel="noopener noreferrer" class="bg-bgCard hover:bg-bgCardHover border-2 border-borderNavy hover:border-lumoPurple rounded-3xl overflow-hidden shadow-comic-card hover:-translate-y-2 transition-all flex flex-col group cursor-pointer">
-            <div class="relative aspect-[3/4] w-full overflow-hidden bg-black">
-              <img src="assets/gallery6.png" alt="3D Studio Highlight: Time Freeze Clock" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-bgDeep via-transparent to-black/20"></div>
-              
+            <div class="relative aspect-[3/4] w-full overflow-hidden bg-gradient-to-br from-[#2B0E47] via-[#471875] to-[#0E031A] flex items-center justify-center p-6">
+              <svg class="w-3/4 h-3/4 group-hover:scale-105 transition-transform" viewBox="0 0 160 200">
+                <circle cx="80" cy="100" r="55" fill="#9D4EDD" opacity="0.25" filter="blur(15px)"/>
+                <!-- Chrono Time Freeze -->
+                <circle cx="80" cy="100" r="42" fill="#05091E" stroke="#9D4EDD" stroke-width="4"/>
+                <path d="M80 75 L80 100 L100 100" stroke="#FFD214" stroke-width="3.5" stroke-linecap="round"/>
+                <circle cx="80" cy="100" r="4" fill="#00E5FF"/>
+              </svg>
               <div class="absolute top-3 right-3 bg-black/80 backdrop-blur-md text-lumoPurple border border-lumoPurple/60 text-xs font-cartoon font-bold px-3 py-1 rounded-full">
                 Render #06
               </div>
@@ -831,7 +1032,7 @@
       </div>
     </div>
 
-    <!-- ==================== SECTION 1: LIVE SOCIAL PROOF & FAN MILESTONE COUNTER ==================== -->
+    <!-- ==================== SECTION: LIVE SOCIAL PROOF & FAN MILESTONE COUNTER ==================== -->
     <section class="py-14 bg-bgMid/40 border-y-2 border-borderNavy relative">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -917,7 +1118,7 @@
       </div>
     </section>
 
-    <!-- ==================== SECTION 2: INTERACTIVE "SUGGEST AN IMPOSSIBLE EPISODE" / FAN VIP BOX ==================== -->
+    <!-- ==================== SECTION: INTERACTIVE "SUGGEST AN IMPOSSIBLE EPISODE" / FAN VIP BOX ==================== -->
     <section class="py-14 relative overflow-hidden">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -1001,7 +1202,15 @@
         <div class="bg-gradient-to-r from-bgCard via-[#1B296B] to-bgCard border-4 border-lumoYellow rounded-3xl p-8 sm:p-12 text-center shadow-glow-gold relative overflow-hidden">
           
           <div class="flex justify-center mb-4">
-            <img src="assets/logo.jpg" alt="Boom Lumo Avatar" class="w-16 h-16 rounded-full border-2 border-white shadow-lg">
+            <div class="w-16 h-16 rounded-full bg-lumoYellow flex items-center justify-center p-1 border-2 border-white shadow-lg">
+              <svg class="w-full h-full" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="46" fill="#05091E"/>
+                <circle cx="50" cy="55" r="26" fill="#FFD214"/>
+                <circle cx="41" cy="50" r="5" fill="#05091E"/>
+                <circle cx="59" cy="50" r="5" fill="#05091E"/>
+                <path d="M42 62q8 7 16 0" stroke="#05091E" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+              </svg>
+            </div>
           </div>
 
           <h2 class="font-cartoon text-3xl sm:text-5xl font-extrabold text-white comic-title mb-4">
@@ -1063,7 +1272,15 @@
         <!-- Brand Info -->
         <div class="md:col-span-2">
           <div class="flex items-center gap-3 mb-4">
-            <img src="assets/logo.jpg" alt="Boom Lumo" class="w-10 h-10 rounded-full border-2 border-lumoYellow object-cover">
+            <div class="w-10 h-10 rounded-full bg-lumoYellow flex items-center justify-center p-0.5 border-2 border-lumoYellow shadow-sm">
+              <svg class="w-full h-full" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="46" fill="#05091E"/>
+                <circle cx="50" cy="55" r="26" fill="#FFD214"/>
+                <circle cx="41" cy="50" r="5" fill="#05091E"/>
+                <circle cx="59" cy="50" r="5" fill="#05091E"/>
+                <path d="M42 62q8 7 16 0" stroke="#05091E" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+              </svg>
+            </div>
             <span class="font-cartoon text-2xl font-bold text-white tracking-wide">BOOM LUMO</span>
           </div>
           <p class="text-sm text-slate-300 max-w-sm leading-relaxed mb-4">
@@ -1221,7 +1438,7 @@
     </div>
   </div>
 
-  <!-- JAVASCRIPT MODAL HELPER FUNCTIONS (ANTI-XSS / NO INNERHTML) -->
+  <!-- JAVASCRIPT HELPER FUNCTIONS (ANTI-XSS / NO INNERHTML) -->
   <script>
     function openModal(id) {
       const modal = document.getElementById(id);
@@ -1254,7 +1471,6 @@
       const ideaText = input.value.trim();
       const catVal = category ? category.value : 'Impossible 3D Physics';
 
-      // Update success message safely without innerHTML
       if (successMsg) {
         successMsg.textContent = 'Received [' + catVal + ']: "' + ideaText + '" — Our 3D physics artists are testing this simulation now!';
       }
